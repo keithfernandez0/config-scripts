@@ -15,6 +15,7 @@ echo "[ :| ] Updating system..."
 pacman -Syu --noconfirm
 
 display_ASCII_header() {
+
     echo " ░▒▓██████▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓███████▓▒░░▒▓████████▓▒░▒▓███████▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓███████▓▒░  "
     echo "░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░ "
     echo "░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░ "
@@ -156,10 +157,10 @@ install_ethical_hacking_environment() {
     git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
     echo "source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
     echo "source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
-    
+
     pacman -Syu --noconfirm
 
-    echo "[ :3c ] Ethical hacking environment setup complete!"
+    echo -e "[ :3c ] Ethical hacking environment setup complete!\n"
 }
 
 # Main Menu
@@ -192,11 +193,11 @@ while true; do
             break
             ;;
         4)
-            echo "[ :3c ] Exiting setup. Goodbye!"
+            echo -e "[ :3c ] Exiting setup. Goodbye!\n"
             exit 0
             ;;
         *)
-            echo "[ :( ] Invalid choice. Please select a valid option."
+            echo -e "[ :( ] Invalid choice. Please select a valid option.\n"
             ;;
     esac
 done
