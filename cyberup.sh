@@ -59,8 +59,7 @@ install_ethical_hacking_environment() {
         base-devel git wget curl unzip zip p7zip
         htop neofetch tmux zsh fzf fd ripgrep btop
         zsh-autosuggestions zsh-syntax-highlighting
-        binutils nasm testdisk iputils tracepath traceroute
-        bind
+        binutils nasm testdisk iputils traceroute bind
     )
 
     DEV_TOOLS=(
@@ -72,17 +71,16 @@ install_ethical_hacking_environment() {
 
     CYBERSEC_TOOLS=(
         metasploit nmap wireshark-qt john hashcat hydra
-        sqlmap nikto openvas aircrack-ng impacket ncat whois
-        gnu-netcat
+        sqlmap nikto aircrack-ng impacket whois gnu-netcat
     )
 
     REVERSE_TOOLS=(
-        ghidra radare2 binwalk cutter gdb bless objdump
-        ndisasm capstone lsof sysdig strace hexedit
+        ghidra radare2 binwalk cutter gdb bless capstone lsof
+        sysdig strace hexedit ltrace
     )
 
     FORENSICS_TOOLS=(
-        sleuthkit testdisk photorec foremost btrfs-progs
+        sleuthkit testdisk foremost btrfs-progs
         exfat-utils volatility3 ddrescue tcpdump dsniff
     )
 
@@ -92,8 +90,8 @@ install_ethical_hacking_environment() {
     )
 
     NETWORKING_TOOLS=(
-        traceroute iperf3 netcat tcpdump openssh tmate bind dnsutils
-        openvpn wireguard-tools
+        traceroute iperf3 tcpdump openssh tmate bind openvpn
+        wireguard-tools
     )
 
     VIRTUALIZATION_TOOLS=(
@@ -106,8 +104,8 @@ install_ethical_hacking_environment() {
     )
 
     NOTETAKING_REPORT_TOOLS=(
-        libreoffice-fresh okular zathura zathura-pdf-poppler texlive-full
-        obsidian cherrytree
+        libreoffice-fresh okular zathura zathura-pdf-poppler obsidian
+        cherrytree
     )
 
     EXTRAS=(
@@ -125,7 +123,7 @@ install_ethical_hacking_environment() {
         spiderfoot burpsuite recon-ng dnsprobe nuclei chkrootkit
         autopsy gobuster zenmap openvas-scanner ospd-openvas gsa
         gvmd responder retdec extundelete guymager crunch pandoc-bin
-        joplin
+        joplin texlive-full
     )
 
     # Install packages
