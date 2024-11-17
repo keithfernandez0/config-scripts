@@ -156,6 +156,8 @@ install_ethical_hacking_environment() {
     git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
     echo "source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
     echo "source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
+    
+    pacman -Syu --noconfirm
 
     echo "[ :3c ] Ethical hacking environment setup complete!"
 }
