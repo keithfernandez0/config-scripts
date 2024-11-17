@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# CyberSec Workstation Setup Script
+# Version: 1.0.0
+# Add your ASCII art here later :)
+
 # Ensure the script is run with sudo
 if [ "$(id -u)" -ne 0 ]; then
     echo "[ :( ] Please run this script with sudo."
@@ -52,34 +56,39 @@ install_ethical_hacking_environment() {
     echo "[ :| ] Installing ethical hacking environment..."
 
     BASE_PACKAGES=(
-    base-devel git wget curl unzip zip p7zip
-    htop neofetch tmux zsh fzf fd ripgrep btop
-    zsh-autosuggestions zsh-syntax-highlighting
+        base-devel git wget curl unzip zip p7zip
+        htop neofetch tmux zsh fzf fd ripgrep btop
+        zsh-autosuggestions zsh-syntax-highlighting
+        binutils nasm testdisk iputils tracepath traceroute
+        bind
     )
 
     DEV_TOOLS=(
         vim neovim gcc clang gdb lldb cmake make valgrind
-        strace ltrace python python-pip ipython jupyter virtualenv
-        jdk-openjdk maven gradle go rustup cargo nodejs npm yarn shellcheck
+        strace ltrace python python-pip ipython jupyter-notebook
+        python-virtualenv jdk-openjdk maven gradle go rustup rust
+        nodejs npm yarn shellcheck
     )
 
     CYBERSEC_TOOLS=(
-        metasploit nmap zenmap wireshark-qt john hashcat hydra
-        sqlmap nikto openvas aircrack-ng responder impacket
+        metasploit nmap wireshark-qt john hashcat hydra
+        sqlmap nikto openvas aircrack-ng impacket ncat whois
+        gnu-netcat
     )
 
     REVERSE_TOOLS=(
-        ghidra radare2 binwalk cutter gdb retdec bless objdump
+        ghidra radare2 binwalk cutter gdb bless objdump
         ndisasm capstone lsof sysdig strace hexedit
     )
 
     FORENSICS_TOOLS=(
-        autopsy sleuthkit testdisk photorec foremost extundelete
-        btrfs-progs exfat-utils volatility3 ddrescue guymager tcpdump tshark dsniff
+        sleuthkit testdisk photorec foremost btrfs-progs
+        exfat-utils volatility3 ddrescue tcpdump dsniff
     )
 
     ETHICAL_HACKING_TOOLS=(
-        hashcat crunch kismet wifite reaver cowpatty mitmproxy bettercap
+        hashcat kismet wifite reaver cowpatty mitmproxy
+        bettercap bully wifite
     )
 
     NETWORKING_TOOLS=(
@@ -88,8 +97,8 @@ install_ethical_hacking_environment() {
     )
 
     VIRTUALIZATION_TOOLS=(
-        qemu libvirt virt-manager ovmf docker docker-compose
-        virtualbox virtualbox-host-modules-arch vagrant
+        qemu-full libvirt virt-manager docker docker-compose
+        virtualbox virtualbox-host-modules-arch vagrant edk2-ovmf
     )
 
     SECURITY_PRIVACY=(
@@ -97,22 +106,26 @@ install_ethical_hacking_environment() {
     )
 
     NOTETAKING_REPORT_TOOLS=(
-        libreoffice okular zathura zathura-pdf-poppler texlive-most
-        pandoc obsidian cherrytree joplin
+        libreoffice-fresh okular zathura zathura-pdf-poppler texlive-full
+        obsidian cherrytree
     )
 
     EXTRAS=(
-        ranger nnn thunar imagemagick exiftool poppler pdftk qpdf
+        ranger nnn thunar imagemagick perl-image-exiftool poppler pdftk qpdf
     )
 
     FONTS_THEMES=(
         ttf-jetbrains-mono ttf-fira-code ttf-roboto-mono arc-gtk-theme
-        papirus-icon-theme
+        papirus-icon-theme noto-fonts noto-fonts-emoji noto-fonts-cjk
     )
 
     AUR_PACKAGES=(
-        gophish sleuthkit-gui mullvad-vpn sddm-lain-wired-theme
+        gophish mullvad-vpn sddm-lain-wired-theme
         discord_arch_electron wordlists social-engineer-toolkit
+        spiderfoot burpsuite recon-ng dnsprobe nuclei chkrootkit
+        autopsy gobuster zenmap openvas-scanner ospd-openvas gsa
+        gvmd responder retdec extundelete guymager crunch pandoc-bin
+        joplin
     )
 
     # Install packages
@@ -140,7 +153,6 @@ install_ethical_hacking_environment() {
 
     yay -S --noconfirm "${AUR_PACKAGES[@]}"
 
-    # Miscellaneous steps for ZSH setup
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
     echo "source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
