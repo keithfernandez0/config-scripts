@@ -169,7 +169,7 @@ while true; do
     clear
 
     display_ASCII_header()
-    echo "CyberSec Workstation Setup Script - Version 1.0.0"
+    echo "CyberUp Workstation Setup Script - Version 1.0.0"
     echo "-------------------------------------------------"
     echo "1. Install BlackArch keyring only"
     echo "2. Install ethical hacking environment only"
@@ -193,7 +193,7 @@ while true; do
             break
             ;;
         4)
-            echo -e "[ :3c ] Exiting setup. Goodbye!\n"
+            echo -e "[ :3c ] Exiting setup. Goodbye! (^_^)/\n"
             exit 0
             ;;
         *)
