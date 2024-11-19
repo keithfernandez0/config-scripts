@@ -1,35 +1,26 @@
 #!/bin/bash
 
-# CyberSec Workstation Setup Script
-# Version: 1.0.0
-# Add your ASCII art here later :)
-
-# Ensure the script is run with sudo
-if [ "$(id -u)" -ne 0 ]; then
-    echo "[ :( ] Please run this script with sudo."
-    exit 1
-fi
-
 # Update system and synchronize package databases
 echo "[ :| ] Updating system..."
-pacman -Syu --noconfirm
+sudo pacman -Syu --noconfirm
 
 display_ASCII_header() {
 
-    echo " ░▒▓██████▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓███████▓▒░░▒▓████████▓▒░▒▓███████▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓███████▓▒░  "
-    echo "░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░ "
-    echo "░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░ "
-    echo "░▒▓█▓▒░       ░▒▓██████▓▒░░▒▓███████▓▒░░▒▓██████▓▒░ ░▒▓███████▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓███████▓▒░  "
-    echo "░▒▓█▓▒░         ░▒▓█▓▒░   ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░        "
-    echo "░▒▓█▓▒░░▒▓█▓▒░  ░▒▓█▓▒░   ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░        "
-    echo " ░▒▓██████▓▒░   ░▒▓█▓▒░   ░▒▓███████▓▒░░▒▓████████▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓██████▓▒░░▒▓█▓▒░        "
+    echo -e "\n\n"
+    echo "  ░▒▓██████▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓███████▓▒░░▒▓████████▓▒░▒▓███████▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓███████▓▒░  "
+    echo " ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░ "
+    echo " ░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░ "
+    echo " ░▒▓█▓▒░       ░▒▓██████▓▒░░▒▓███████▓▒░░▒▓██████▓▒░ ░▒▓███████▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓███████▓▒░  "
+    echo " ░▒▓█▓▒░         ░▒▓█▓▒░   ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░        "
+    echo " ░▒▓█▓▒░░▒▓█▓▒░  ░▒▓█▓▒░   ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░        "
+    echo "  ░▒▓██████▓▒░   ░▒▓█▓▒░   ░▒▓███████▓▒░░▒▓████████▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓██████▓▒░░▒▓█▓▒░        "
     echo -e "\n"
-    echo -e "                  CYBER UP, v1.0, by Keith Michelangelo Fernandez, 2024                     \n"
+    echo -e "                  CYBERUP, v1.1, by Keith Michelangelo Fernandez, 2024                     \n"
     echo -e "                                      MIT LICENSE\n\n"
-    echo -e "This script automates the installation of essential tools and utilities for a fully equipped\n"
-    echo -e "cybersecurity, ethical hacking, reverse engineering, and forensics workstation on Arch Linux.\n"
-    echo -e "Designed with efficiency and comprehensiveness in mind, it ensures your system is ready for\n"
-    echo -e "coding, penetration testing, and forensic investigations with a single execution.\n"
+    echo -e " This script automates the installation of essential tools and utilities for a fully equipped"
+    echo -e " cybersecurity, ethical hacking, reverse engineering, and forensics workstation on Arch Linux."
+    echo -e " Designed with efficiency and comprehensiveness in mind, it ensures your system is ready for"
+    echo -e " coding, penetration testing, and forensic investigations with a single execution.\n"
 
 }
 
@@ -49,7 +40,7 @@ install_blackarch_keyring() {
     sed -i '/\[multilib\]/,/Include/s/^#//' /etc/pacman.conf
 
     echo "[ :| ] Updating package databases..."
-    pacman -Syu --noconfirm
+    sudo pacman -Syu --noconfirm
 
     echo "[ :3c ] BlackArch keyring setup complete!"
 }
@@ -125,23 +116,22 @@ install_ethical_hacking_environment() {
         spiderfoot burpsuite recon-ng dnsprobe nuclei chkrootkit
         autopsy gobuster zenmap openvas-scanner ospd-openvas gsa
         gvmd responder retdec extundelete guymager crunch pandoc-bin
-        joplin texlive-full
     )
 
     # Install packages
-    pacman -S --noconfirm --needed "${ETHICAL_HACKING_TOOLS[@]}"
-    pacman -S --noconfirm --needed "${BASE_PACKAGES[@]}"
-    pacman -S --noconfirm --needed "${DEV_TOOLS[@]}"
-    pacman -S --noconfirm --needed "${CYBERSEC_TOOLS[@]}"
-    pacman -S --noconfirm --needed "${REVERSE_TOOLS[@]}"
-    pacman -S --noconfirm --needed "${FORENSICS_TOOLS[@]}"
-    pacman -S --noconfirm --needed "${ETHICAL_HACKING_TOOLS[@]}"
-    pacman -S --noconfirm --needed "${NETWORKING_TOOLS[@]}"
-    pacman -S --noconfirm --needed "${VIRTUALIZATION_TOOLS[@]}"
-    pacman -S --noconfirm --needed "${SECURITY_PRIVACY[@]}"
-    pacman -S --noconfirm --needed "${NOTETAKING_REPORT_TOOLS[@]}"
-    pacman -S --noconfirm --needed "${EXTRAS[@]}"
-    pacman -S --noconfirm --needed "${FONTS_THEMES[@]}"
+    sudo pacman -S --noconfirm --needed "${ETHICAL_HACKING_TOOLS[@]}"
+    sudo pacman -S --noconfirm --needed "${BASE_PACKAGES[@]}"
+    sudo pacman -S --noconfirm --needed "${DEV_TOOLS[@]}"
+    sudo pacman -S --noconfirm --needed "${CYBERSEC_TOOLS[@]}"
+    sudo pacman -S --noconfirm --needed "${REVERSE_TOOLS[@]}"
+    sudo pacman -S --noconfirm --needed "${FORENSICS_TOOLS[@]}"
+    sudo pacman -S --noconfirm --needed "${ETHICAL_HACKING_TOOLS[@]}"
+    sudo pacman -S --noconfirm --needed "${NETWORKING_TOOLS[@]}"
+    sudo pacman -S --noconfirm --needed "${VIRTUALIZATION_TOOLS[@]}"
+    sudo pacman -S --noconfirm --needed "${SECURITY_PRIVACY[@]}"
+    sudo pacman -S --noconfirm --needed "${NOTETAKING_REPORT_TOOLS[@]}"
+    sudo pacman -S --noconfirm --needed "${EXTRAS[@]}"
+    sudo pacman -S --noconfirm --needed "${FONTS_THEMES[@]}"
 
     # Install AUR packages
     if ! command -v yay &>/dev/null; then
@@ -158,9 +148,9 @@ install_ethical_hacking_environment() {
     echo "source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
     echo "source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
 
-    pacman -Syu --noconfirm
+    sudo pacman -Syu --noconfirm
 
-    echo -e "[ :3c ] Ethical hacking environment setup complete!\n"
+    echo -e "\n[ :3c ] Ethical hacking environment setup complete!\n"
 }
 
 # Main Menu
@@ -168,14 +158,14 @@ while true; do
 
     clear
 
-    display_ASCII_header()
-    echo "CyberUp Workstation Setup Script - Version 1.0.0"
-    echo "-------------------------------------------------"
-    echo "[1] Install BlackArch keyring only"
-    echo "[2] Install ethical hacking environment only"
-    echo "[3] Install both BlackArch keyring and ethical hacking environment"
-    echo "[4] Exit"
-    echo "-------------------------------------------------"
+    display_ASCII_header
+    echo "      CYBERUP Arch Linux Workstation Setup Script, Version 1.1"
+    echo "  ==================================================================="
+    echo "  [1] Install BlackArch keyring only"
+    echo "  [2] Install ethical hacking environment only"
+    echo "  [3] Install both BlackArch keyring and ethical hacking environment"
+    echo "  [4] Exit"
+    echo -e "  ===================================================================\n"
     read -rp "[?] Choose an option [1-4]: " choice
 
     case $choice in
@@ -193,11 +183,12 @@ while true; do
             break
             ;;
         4)
-            echo -e "[ :3c ] Exiting setup. Goodbye! (^_^)/\n"
+            echo -e "\n[ :3c ] Exiting setup. Goodbye! (^_^)/\n"
             exit 0
             ;;
         *)
-            echo -e "[ :( ] Invalid choice. Please select a valid option.\n"
+            echo -e "\n[ :( ] Invalid choice. Please select a valid option.\n"
             ;;
     esac
 done
+
