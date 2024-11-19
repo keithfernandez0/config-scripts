@@ -166,7 +166,7 @@ while true; do
     echo "  [3] Install both BlackArch keyring and ethical hacking environment"
     echo "  [4] Exit"
     echo -e "  ===================================================================\n"
-    read -rp "[?] Choose an option [1-4]: " choice
+    read -rp " [?] Choose an option [1-4]: " choice
 
     case $choice in
         1)
