@@ -143,11 +143,6 @@ install_ethical_hacking_environment() {
 
     yay -S --noconfirm "${AUR_PACKAGES[@]}"
 
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-    git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
-    echo "source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
-    echo "source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
-
     sudo pacman -Syu --noconfirm
 
     echo -e "\n[ :3c ] Ethical hacking environment setup complete!\n"
