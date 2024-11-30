@@ -15,7 +15,7 @@ display_ASCII_header() {
     echo " ░▒▓█▓▒░░▒▓█▓▒░  ░▒▓█▓▒░   ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░        "
     echo "  ░▒▓██████▓▒░   ░▒▓█▓▒░   ░▒▓███████▓▒░░▒▓████████▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓██████▓▒░░▒▓█▓▒░        "
     echo -e "\n"
-    echo -e "                  CYBERUP, v1.1, by Keith Michelangelo Fernandez, 2024                     \n"
+    echo -e "                  CYBERUP, v1.2, by Keith Michelangelo Fernandez, 2024                     \n"
     echo -e "                                      MIT LICENSE\n\n"
     echo -e " This script automates the installation of essential tools and utilities for a fully equipped"
     echo -e " cybersecurity, ethical hacking, reverse engineering, and forensics workstation on Arch Linux."
