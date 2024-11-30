@@ -50,9 +50,9 @@ install_ethical_hacking_environment() {
 
     BASE_PACKAGES=(
         base-devel git wget curl unzip zip p7zip
-        htop neofetch tmux zsh fzf fd ripgrep btop
-        zsh-autosuggestions zsh-syntax-highlighting
-        binutils nasm testdisk iputils traceroute bind
+        htop neofetch tmux fish fzf fd ripgrep btop
+        zsh-autosuggestions binutils nasm testdisk 
+        iputils traceroute bind
     )
 
     DEV_TOOLS=(
