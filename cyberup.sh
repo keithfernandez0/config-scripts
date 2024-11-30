@@ -28,7 +28,7 @@ install_blackarch_keyring() {
     echo "[ :| ] Setting up BlackArch keyring..."
     curl -O https://blackarch.org/strap.sh
 
-    echo "76363d41bd1caeb9ed2a0c984ce891c8a6075764 strap.sh" | sha1sum -c || {
+    echo 7fb73c152e927095cf50695bfcaba3620b36d24d strap.sh | sha1sum -c || {
         echo "[ :( ] SHA1 checksum verification failed! Exiting."
         exit 1
     }
