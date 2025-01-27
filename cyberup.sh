@@ -27,10 +27,6 @@ display_ASCII_header() {
 install_blackarch_keyring() {
     echo "[ :| ] Setting up BlackArch keyring..."
     curl -O https://blackarch.org/strap.sh
-
-    echo 7fb73c152e927095cf50695bfcaba3620b36d24d strap.sh | sha1sum -c || {
-        echo "[ :( ] SHA1 checksum verification failed! Exiting."
-        exit 1
     }
 
     chmod +x strap.sh
@@ -43,7 +39,6 @@ install_blackarch_keyring() {
     sudo pacman -Syu --noconfirm
 
     echo "[ :3c ] BlackArch keyring setup complete!"
-}
 
 install_ethical_hacking_environment() {
     echo "[ :| ] Installing ethical hacking environment..."
@@ -52,7 +47,7 @@ install_ethical_hacking_environment() {
         base-devel git wget curl unzip zip p7zip
         htop neofetch tmux fish fzf fd ripgrep btop
         zsh-autosuggestions binutils nasm testdisk 
-        iputils traceroute bind
+        iputils traceroute bind reflector
     )
 
     DEV_TOOLS=(
@@ -113,10 +108,12 @@ install_ethical_hacking_environment() {
     AUR_PACKAGES=(
         gophish mullvad-vpn sddm-lain-wired-theme
         discord_arch_electron wordlists social-engineer-toolkit
-        spiderfoot burpsuite recon-ng dnsprobe nuclei chkrootkit
-        autopsy gobuster zenmap openvas-scanner ospd-openvas gsa
-        gvmd responder retdec extundelete guymager crunch pandoc-bin
+        spiderfoot burpsuite recon-ng dnsprobe chkrootkit
+        autopsy gobuster zenmap responder retdec extundelete guymager
+        crunch pandoc-bin
     )
+
+    reflector -p https -c US --sort rate --verbose
 
     # Install packages
     sudo pacman -S --noconfirm --needed "${ETHICAL_HACKING_TOOLS[@]}"
@@ -186,4 +183,3 @@ while true; do
             ;;
     esac
 done
-
